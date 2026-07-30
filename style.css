@@ -1,18 +1,77 @@
+.background{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url("images/background.jpg") center/cover no-repeat;
+    z-index:-2;
+}
+
+.background::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,0.35);
+}
+.section{
+    width:90%;
+    max-width:700px;
+    margin:25px auto;
+    padding:30px;
+    backdrop-filter:blur(5px);
+    
+
+    /* Background di dalam kartu */
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+
+    position:relative;
+    overflow:hidden;
+}
+.section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,0.75);
+    z-index:1;
+}
+
+.section *{
+    position:relative;
+    z-index:2;
+}
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Georgia,serif;
 }
+.pembukabg{
+height:100vh;
+background:url("images/lasan.jpg") center/cover no-repeat;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
 
+}
 body{
 background:#fff;
 color:#333;
+
 }
 
 #cover{
 height:100vh;
-background:url("images/cover.jpg") center/cover no-repeat;
+background :url("images/lasan.jpg") center/cover repeat-y;
 position:relative;
 display:flex;
 justify-content:center;
@@ -43,11 +102,11 @@ letter-spacing:3px;
 font-size:14px;
 }
 
-h1{
-font-size:42px;
-margin:15px 0;
-}
 
+h3{
+font-size:12px;
+marginbot:15px 0;
+}
 h1 span{
 h1{
     font-size:42px;
@@ -87,6 +146,7 @@ transform:scale(1.05);
 display:none;
 padding:40px;
 text-align:center;
+
 }
 /* Animasi Cover */
 .cover-content{
@@ -157,6 +217,7 @@ button:hover{
 padding:70px 25px;
 text-align:center;
 line-height:1.8;
+
 }
 
 .mempelai{
@@ -181,7 +242,7 @@ width:120px;
 height:120px;
 border-radius:50%;
 object-fit:cover;
-border:4px solid gold;
+border:3px solid gold;
 }
 
 .love{
@@ -191,7 +252,7 @@ color:#D4AF37;
 
 .akad{
 padding:60px 20px;
-text-align:center;
+text-align:center
 }
 
 .countdown{
@@ -227,7 +288,7 @@ font-size:12px;
 .lokasi,
 .story,
 .gallery{
-padding:70px 25px;
+padding: 30px 25px;
 text-align:center;
 }
 
@@ -243,8 +304,8 @@ border-radius:50px;
 
 .timeline{
 background:white;
-padding:20px;
-margin:20px auto;
+padding:50px;
+margin:50px auto;
 border-radius:20px;
 max-width:500px;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
@@ -255,11 +316,16 @@ display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:12px;
 margin-top:25px;
+width: calc(100%  80px);
+    margin: 20px -80px;   /* lebih mepet kiri dan kanan */
+    padding: 0;
+
 }
 
 .galeri img{
 width:100%;
 border-radius:18px;
+box-shadow: 0 8px 20px ;
 transition:.4s;
 cursor:pointer;
 }
