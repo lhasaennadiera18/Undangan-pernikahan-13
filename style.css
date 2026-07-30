@@ -1,0 +1,269 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia,serif;
+}
+
+body{
+background:#fff;
+color:#333;
+}
+
+#cover{
+height:100vh;
+background:url("images/cover.jpg") center/cover no-repeat;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.45);
+}
+
+.cover-content{
+position:relative;
+z-index:2;
+color:white;
+padding:25px;
+max-width:420px;
+}
+
+.judul{
+letter-spacing:3px;
+font-size:14px;
+}
+
+h1{
+font-size:42px;
+margin:15px 0;
+}
+
+h1 span{
+h1{
+    font-size:42px;
+    margin:15px 0;
+    color:#fff;
+    text-shadow:2px 2px 12px rgba(0,0,0,.5);
+}
+}
+
+.tanggal{
+margin-bottom:20px;
+}
+
+.kepada{
+background:rgba(255,255,255,.15);
+padding:15px;
+border-radius:15px;
+margin-bottom:20px;
+backdrop-filter:blur(5px);
+}
+
+button{
+background:#D4AF37;
+color:white;
+border:none;
+padding:14px 35px;
+border-radius:50px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#isi{
+display:none;
+padding:40px;
+text-align:center;
+}
+/* Animasi Cover */
+.cover-content{
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Tombol */
+button{
+    transition:0.3s;
+    box-shadow:0 8px 20px rgba(212,175,55,.4);
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(212,175,55,.6);
+}
+
+/* Hati Melayang */
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
+}
+
+.hearts span{
+    position:absolute;
+    bottom:-50px;
+    color:rgba(255,255,255,.6);
+    font-size:20px;
+    animation:love 12s linear infinite;
+}
+
+.hearts span:nth-child(1){left:10%;animation-delay:0s;}
+.hearts span:nth-child(2){left:25%;animation-delay:2s;}
+.hearts span:nth-child(3){left:40%;animation-delay:4s;}
+.hearts span:nth-child(4){left:60%;animation-delay:1s;}
+.hearts span:nth-child(5){left:80%;animation-delay:3s;}
+.hearts span:nth-child(6){left:92%;animation-delay:5s;}
+
+@keyframes love{
+    0%{
+        transform:translateY(0) scale(0.8);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) scale(1.4);
+        opacity:0;
+    }
+}
+
+.welcome{
+padding:70px 25px;
+text-align:center;
+line-height:1.8;
+}
+
+.mempelai{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:25px;
+padding:30px;
+}
+
+.card{
+width:160px;
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.card img{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid gold;
+}
+
+.love{
+font-size:40px;
+color:#D4AF37;
+}
+
+.akad{
+padding:60px 20px;
+text-align:center;
+}
+
+.countdown{
+display:flex;
+justify-content:center;
+gap:15px;
+padding:30px;
+flex-wrap:wrap;
+}
+
+.box{
+width:80px;
+height:80px;
+background:#D4AF37;
+color:white;
+border-radius:18px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.box span{
+font-size:28px;
+font-weight:bold;
+}
+
+.box small{
+font-size:12px;
+}
+
+
+.lokasi,
+.story,
+.gallery{
+padding:70px 25px;
+text-align:center;
+}
+
+.maps{
+display:inline-block;
+margin-top:20px;
+padding:14px 28px;
+background:#D4AF37;
+color:white;
+text-decoration:none;
+border-radius:50px;
+}
+
+.timeline{
+background:white;
+padding:20px;
+margin:20px auto;
+border-radius:20px;
+max-width:500px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.galeri{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+margin-top:25px;
+}
+
+.galeri img{
+width:100%;
+border-radius:18px;
+transition:.4s;
+cursor:pointer;
+}
+
+.galeri img:hover{
+transform:scale(1.05);
+}
