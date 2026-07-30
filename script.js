@@ -1,86 +1,64 @@
-function bukaUndangan(){
+function bukaUndangan() {
+    document.getElementById("cover").style.display = "none";
+    document.getElementById("isi").style.display = "block";
 
-document.getElementById("cover").style.display="none";
+    const musik = document.getElementById("musik");
 
-document.getElementById("isi").style.display="block";
+    if (musik) {
+        musik.load();
 
-const musik=document.getElementById("musik");
-
-if(musik){
-musik.load();
-
-musik.play().then(()=>{
-    console.log("Musik berhasil diputar");
-}).catch((e)=>{
-    alert("Gagal memutar musik: " + e);
-});
+        musik.play().then(() => {
+            console.log("Musik berhasil diputar");
+        }).catch((e) => {
+            alert("Gagal memutar musik: " + e);
+        });
+    }
 }
 
+// Nama tamu dari URL
+const params = new URLSearchParams(window.location.search);
+const nama = params.get("to");
+
+if (nama) {
+    document.getElementById("namaTamu").innerText =
+        decodeURIComponent(nama.replace(/\+/g, " "));
 }
 
-const params=new URLSearchParams(window.location.search);
+// Countdown
+const target = new Date("2026-09-13T07:00:00+07:00").getTime();
 
-const nama=params.get("to");
+setInterval(() => {
+    const now = new Date().getTime();
+    const selisih = target - now;
 
-if(nama){
+    const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+    const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+    const detik = Math.floor((selisih % (1000 * 60)) / 1000);
 
-document.getElementById("namaTamu").innerText=decodeURIComponent(nama);
+    document.getElementById("hari").innerHTML = hari;
+    document.getElementById("jam").innerHTML = jam;
+    document.getElementById("menit").innerHTML = menit;
+    document.getElementById("detik").innerHTML = detik;
+}, 1000);
 
-}
-
-
-const target=new Date("2026-09-13T07:00:00+07:00").getTime();
-
-setInterval(()=>{
-
-const now=new Date().getTime();
-
-const selisih=target-now;
-
-const hari=Math.floor(selisih/(1000*60*60*24));
-
-const jam=Math.floor((selisih%(1000*60*60*24))/(1000*60*60));
-
-const menit=Math.floor((selisih%(1000*60*60))/(1000*60));
-
-const detik=Math.floor((selisih%(1000*60))/1000);
-
-document.getElementById("hari").innerHTML=hari;
-document.getElementById("jam").innerHTML=jam;
-document.getElementById("menit").innerHTML=menit;
-document.getElementById("detik").innerHTML=detik;
-
-},1000);
-
-
-const animasi=document.querySelectorAll(
-'.welcome,.mempelai,.akad,.lokasi,.story,.gallery'
+// Animasi saat scroll
+const animasi = document.querySelectorAll(
+    ".welcome,.mempelai,.akad,.lokasi,.story,.gallery"
 );
 
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
-
-}
-
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
 });
 
-});
-
-animasi.forEach(item=>{
-
-item.style.opacity="0";
-
-item.style.transform="translateY(40px)";
-
-item.style.transition=".8s";
-
-observer.observe(item);
-
+animasi.forEach((item) => {
+    item.style.opacity = "0";
+    item.style.transform = "translateY(40px)";
+    item.style.transition = ".8s";
+    observer.observe(item);
 });
